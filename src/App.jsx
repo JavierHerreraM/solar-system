@@ -1,10 +1,16 @@
 import React from 'react';
 
+
+import Canvas from './components/Canvas'
+import NavBar from './components/NavBar'
+import Landing from './components/Landing'
+
 function App() {
     return (
-        <>
-            <h1>Hola Mundo</h1>
-        </>
+        <Canvas>
+            <NavBar title='Solar System' options={['Home', 'Planets']} />
+            <Landing />
+        </Canvas>
     );
 }
 
