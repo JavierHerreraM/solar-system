@@ -1,6 +1,16 @@
 :root {
     --white-color: #FCFEFE;
     --principal-color: #f37121;
+    --size1: 1em;
+    --size2: 1.5em;
+    --size3: 2em;
+    --size4: 2.5em;
+    --size5: 3em;
+    --positionPlanet1: -0.5em;
+    --positionPlanet2: -0.75em;
+    --positionPlanet3: -1em;
+    --positionPlanet4: -1.25em;
+    --positionPlanet5: -1.5em;
 }
 
 /* Box sizing rules */
@@ -76,17 +86,182 @@ p {
 }
 
 .landing {
-    width: 100%;
+    width: 100vw;
     height: 100vh;
     padding: calc(40px + 2rem) 1rem 0;
+
+    display: flex;
+    justify-content: center;
 
     background-image: url('./imgs/space.png');
     background-size: cover;
     background-position: center;
+}
 
-    display: grid;
-    grid-template: auto / repeat(12, 1fr);
-    grid-gap: 1rem;
+.solar-system {
+    width: 84vw;
+    height: 35vw;
+    max-height: 35vw;
+    position: relative;
+    font-size: 1.5vw;
+}
+
+.sun {
+    width: calc(var(--size5) * 2);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9;
+}
+
+.orbits {
+    width: 84vw;
+    height: 35vw;
+}
+
+.planet {
+    border-radius: 50%;
+}
+
+.planet img {
+    width: 100%;
+    height: 100%;
+}
+
+.planet:hover {
+    box-shadow: 0px 0px 0px 0.15em white;
+}
+
+.planet1 {
+    width: var(--size1);
+    height: var(--size1);
+    position: absolute;
+    left: var(--positionPlanet1);
+    top: var(--positionPlanet1);
+    /* top: var(--positionPlanet1);
+    left: var(--positionPlanet1); */
+    z-index: 10;
+}
+
+.planet2 {
+    width: var(--size2);
+    height: var(--size2);
+
+    position: absolute;
+    top: var(--positionPlanet2);
+    left: var(--positionPlanet2);
+    z-index: 11;
+}
+
+.planet3 {
+    width: var(--size2);
+    height: var(--size2);
+
+    position: absolute;
+    top: var(--positionPlanet2);
+    left: var(--positionPlanet2);
+    z-index: 12;
+}
+
+.planet4 {
+    width: var(--size1);
+    height: var(--size1);
+
+    position: absolute;
+    top: var(--positionPlanet1);
+    left: var(--positionPlanet1);
+    z-index: 13;
+}
+
+.planet5 {
+    width: var(--size5);
+    height: var(--size5);
+
+    position: absolute;
+    top: var(--positionPlanet5);
+    left: var(--positionPlanet5);
+    z-index: 14;
+}
+
+.planet6 {
+    width: var(--size4);
+    height: var(--size4);
+
+    position: absolute;
+    top: var(--positionPlanet4);
+    left: var(--positionPlanet4);
+    z-index: 15;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet7 {
+    width: var(--size3);
+    height: var(--size3);
+
+    position: absolute;
+    top: var(--positionPlanet3);
+    left: var(--positionPlanet3);
+    z-index: 16;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.planet8 {
+    width: var(--size3);
+    height: var(--size3);
+
+    position: absolute;
+    top: var(--positionPlanet3);
+    left: var(--positionPlanet3);
+    z-index: 17;
+}
+
+.planet .saturn-ring {
+    position: absolute;
+    width: 4em;
+}
+
+.planet .uranus-ring {
+    position: absolute;
+    width: 3.3em;
+}
+
+.layer1 {
+    z-index: 1;
+}
+
+.layer2 {
+    z-index: 2;
+}
+
+.layer3 {
+    z-index: 3;
+}
+
+.layer4 {
+    z-index: 4;
+}
+
+.layer5 {
+    z-index: 5;
+}
+
+.layer6 {
+    z-index: 6;
+}
+
+.layer7 {
+    z-index: 7;
+}
+
+.layer8 {
+    z-index: 8;
 }
 
 .button {
