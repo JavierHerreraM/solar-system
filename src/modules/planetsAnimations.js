@@ -19,39 +19,8 @@ function animate() {
       }, time);
     }
     
-    //* Pauses the planets animation on hover
-    function hoverOn() {
-      //TODO: Open the card
-      planet1.pause();
-      planet2.pause();
-      planet3.pause();
-      planet4.pause();
-      planet5.pause();
-      planet6.pause();
-      planet7.pause();
-      planet8.pause();
-    }
-    
-    //* PLay the animation of the planets
-    function hoverOff() {
-      //TODO: Close the card
-      planet1.play();
-      planet2.play();
-      planet3.play();
-      planet4.play();
-      planet5.play();
-      planet6.play();
-      planet7.play();
-      planet8.play();
-    }
-    
-    planets.forEach(planet => {
-      planet.addEventListener('mouseenter', hoverOn);
-      planet.addEventListener('mouseleave', hoverOff);
-    });
-    
     //* Animates the targeted planet, its the same for the 8 planets
-    const planet1 = anime({
+    anime({
       targets: '.planet1',
       translateX: path1('x'),
       translateY: path1('y'),
@@ -71,7 +40,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet2 = anime({
+    anime({
       targets: '.planet2',
       translateX: path2('x'),
       translateY: path2('y'),
@@ -89,7 +58,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet3 = anime({
+    anime({
       targets: '.planet3',
       translateX: path3('x'),
       translateY: path3('y'),
@@ -107,7 +76,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet4 = anime({
+    anime({
       targets: '.planet4',
       translateX: path4('x'),
       translateY: path4('y'),
@@ -125,7 +94,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet5 = anime({
+    anime({
       targets: '.planet5',
       translateX: path5('x'),
       translateY: path5('y'),
@@ -143,7 +112,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet6 = anime({
+    anime({
       targets: '.planet6',
       translateX: path6('x'),
       translateY: path6('y'),
@@ -161,7 +130,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet7 = anime({
+    anime({
       targets: '.planet7',
       translateX: path7('x'),
       translateY: path7('y'),
@@ -179,7 +148,7 @@ function animate() {
       autoplay: true,
     });
     
-    const planet8 = anime({
+    anime({
       targets: '.planet8',
       translateX: path8('x'),
       translateY: path8('y'),

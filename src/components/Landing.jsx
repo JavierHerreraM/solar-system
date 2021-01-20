@@ -4,8 +4,8 @@ import svgsImport from '../modules/svgs';
 const { sun, mercury, venus, earth, mars, jupiter, saturn, saturnRing, uranus, uranusRing, neptune } = svgsImport;
 const planetsSvgs = [mercury, venus, earth, mars, jupiter, { planet: saturn, class: 'saturn-ring', ring: saturnRing }, { planet: uranus, class: 'uranus-ring', ring: uranusRing }, neptune];
 
-function Landing() {
-
+function Landing(props) {
+    const { handlePlanetClick } = props
     useEffect(() => animate(), []);
 
     return (
@@ -40,7 +40,7 @@ function Landing() {
                 </svg>
 
                 {planetsSvgs.map((svg, index) => {
-                    return (<div key={index} className={`planet planet${index + 1}`}>
+                    return (<div key={index} className={`planet planet${index + 1}`} onClick={(e) => { handlePlanetClick(e.target.classList[1]) }}>
                         <img src={svg.planet ? svg.planet : svg} alt="planet" />
                         { (index === 5 || index === 6) && <img className={svg.class} src={svg.ring} alt="planet ring" />}
                     </div>)
