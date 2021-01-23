@@ -1,0 +1,30 @@
+@import "../../modules/styles";
+
+.navbar {
+    width: 100%;
+    height: 40px;
+    max-height: 40px;
+    margin-bottom: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    color: $white-color;
+}
+
+.navbar-title {
+    position: absolute;
+    left: 1rem;
+}
+
+.navbar-options {
+    max-width: 50%;
+    display: flex;
+}
+
+.navbar-option {
+    margin: 0 1em;
+    color: $white-color;
+    text-decoration: none;
+    cursor: pointer;
+}
