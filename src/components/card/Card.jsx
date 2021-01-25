@@ -5,14 +5,20 @@ import Button from '../button/Button';
 import './card.scss';
 
 function Card(props) {
-    const { cardText, buttonLink, buttonText, planetInfo, handlePlanetClick } = props;
+    const { planetInfo, handlePlanetClick } = props;
+    const { name, text } = planetInfo.info;
+
     return <div className={`${planetInfo.show ? 'show-card ' : ''}card-body`}>
         <div className='card-title'>
-            <h3>{planetInfo.planet}</h3>
+            <h3>{name}</h3>
             <FontAwesomeIcon icon={faTimes} onClick={handlePlanetClick} />
         </div>
-        <div className='card-text'>{cardText}</div>
-        <Button buttonLink={buttonLink} buttonText={buttonText} />
+        <div className='card-text'>{
+            text.map((text, index) => {
+                return <p key={index}>{text}</p>
+            })
+        }</div>
+        <Button buttonLink={`/planets:${name}`} buttonText='see more' name={name} />
     </div>
 }
 

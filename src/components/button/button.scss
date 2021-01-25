@@ -3,10 +3,13 @@
 .button {
     display: inline-block;
     height: auto;
-    max-height: 40px;
+    max-height: 44px;
     max-width: 300px;
     padding: 0.5em 1em;
 
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
     cursor: pointer;
     text-align: center;
     text-transform: uppercase;
@@ -16,9 +19,60 @@
     border: 2px solid $white-color;
     transition: background-color 0.35s ease-out, color 0.35s ease-out, border-color 0.35s ease-out;
 
-    &:hover {
-        color: $white-color;
-        background-color: $principal-color;
-        border-color: $principal-color;
-    }
+}
+
+.card-mercury:hover,
+.card-mercury:focus {
+    color: $white-color;
+    background-color: #C6AD93;
+    border-color: #C6AD93;
+}
+
+.card-venus:hover,
+.card-venus:focus {
+    color: $white-color;
+    background-color: #F4CA53;
+    border-color: #F4CA53;
+}
+
+.card-earth:hover,
+.card-earth:focus {
+    color: $white-color;
+    background-color: #62A8DD;
+    border-color: #62A8DD;
+}
+
+.card-mars:hover,
+.card-mars:focus {
+    color: $white-color;
+    background-color: #B5331A;
+    border-color: #B5331A;
+}
+
+.card-jupiter:hover,
+.card-jupiter:focus {
+    color: $white-color;
+    background-color: #dba995;
+    border-color: #dba995;
+}
+
+.card-saturn:hover,
+.card-saturn:focus {
+    color: $white-color;
+    background-color: #E5A642;
+    border-color: #E5A642;
+}
+
+.card-uranus:hover,
+.card-uranus:focus {
+    color: $white-color;
+    background-color: #7FE2EF;
+    border-color: #7FE2EF;
+}
+
+.card-neptune:hover,
+.card-neptune:focus {
+    color: $white-color;
+    background-color: #6073C6;
+    border-color: #6073C6;
 }

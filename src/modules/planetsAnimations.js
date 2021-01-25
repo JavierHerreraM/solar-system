@@ -18,7 +18,7 @@ function animate() {
         planets[planetPosition].classList.toggle(`layer${planetPosition + 1}`);
       }, time);
     }
-    
+
     //* Animates the targeted planet, its the same for the 8 planets
     anime({
       targets: '.planet1',
@@ -165,6 +165,6 @@ function animate() {
     
       autoplay: true,
     });
-}
+  }
 
 export default animate;

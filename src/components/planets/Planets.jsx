@@ -1,43 +1,46 @@
 import React, { useState } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
+import planetsInfo from '../../modules/planetsInfo';
 import './planets.scss';
 
-import svgsImport from '../../modules/svgs';
-const { jupiter } = svgsImport;
+function Planets(props) {
+    const planet = props.match.params.planet.substring(1);
+    const { name, text, svg, ring = undefined, color } = planetsInfo[planet];
 
-function Planets() {
     let [menuOpen, setMenuOpen] = useState(false);
 
     function handleCLick() {
         menuOpen ? setMenuOpen(false) : setMenuOpen(true);
     }
 
-    return <div className='planets-page'>
-
+    return <div className={`planets-page ${name}`}>
         <div className='planets-card'>
-            <nav>
+            <nav style={{ backgroundColor: color }}>
                 <div className='planets-header'>
-                    <h2>Neptune</h2>
+                    <h2>{name}</h2>
                     <FontAwesomeIcon className={`${menuOpen ? 'rotate-icon ' : ''}planets-menu-icon`} icon={faCaretDown} onClick={handleCLick} />
                 </div>
                 <ul className={`planets-menu ${menuOpen ? 'open-menu' : ''}`}>
-                    <li>Mercury</li>
-                    <li>Venus</li>
-                    <li>Earth</li>
-                    <li>Mars</li>
-                    <li>Jupiter</li>
-                    <li>Saturn</li>
-                    <li>Uranus</li>
-                    <li>Neptune</li>
+                    <li><a href='/planets:mercury'>Mercury</a></li>
+                    <li><a href='/planets:venus'>venus</a></li>
+                    <li><a href='/planets:earth'>earth</a></li>
+                    <li><a href='/planets:mars'>mars</a></li>
+                    <li><a href='/planets:jupiter'>jupiter</a></li>
+                    <li><a href='/planets:saturn'>saturn</a></li>
+                    <li><a href='/planets:uranus'>uranus</a></li>
+                    <li><a href='/planets:neptune'>neptune</a></li>
                 </ul>
             </nav>
             <div className='planets-body'>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim adipisci ipsam modi aliquam vel doloremque eum dolorem, corporis ducimus a architecto voluptas numquam, doloribus obcaecati distinctio libero, provident pariatur! Vitae aperiam sed dolorem animi voluptatibus ad perspiciatis nam minus, numquam illo non voluptas labore ipsam aut eveniet dicta natus</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim adipisci ipsam modi aliquam vel doloremque eum dolorem, corporis ducimus a architecto voluptas numquam, doloribus obcaecati distinctio libero, provident pariatur! Vitae aperiam sed dolorem animi voluptatibus ad perspiciatis nam minus, numquam illo non voluptas labore ipsam aut eveniet dicta natus</p>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim adipisci ipsam modi aliquam vel doloremque eum dolorem, corporis ducimus a architecto voluptas numquam, doloribus obcaecati distinctio libero, provident pariatur! Vitae aperiam sed dolorem animi voluptatibus ad perspiciatis nam minus, numquam illo non voluptas labore ipsam aut eveniet dicta natus</p>
-                <img src={jupiter} alt="planet" />
+                {text.map((text, index) => {
+                    return <p key={index}>{text}</p>
+                })}
             </div>
+        </div>
+        <div className={`planets-img`}>
+            <img src={svg} alt={name} />
+            {ring && <img className='planet-ring' src={ring} alt={`${name}'s ring`} />}
         </div>
     </div>
 }

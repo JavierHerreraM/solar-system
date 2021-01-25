@@ -1,24 +1,53 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import Card from '../card/Card';
 import animate from '../../modules/planetsAnimations';
 import svgsImport from '../../modules/svgs';
+import planetsInfo from '../../modules/planetsInfo';
 import './home.scss';
 
 const { sun, mercury, venus, earth, mars, jupiter, saturn, saturnRing, uranus, uranusRing, neptune } = svgsImport;
 const planetsSvgs = [mercury, venus, earth, mars, jupiter, { planet: saturn, class: 'saturn-ring', ring: saturnRing }, { planet: uranus, class: 'uranus-ring', ring: uranusRing }, neptune];
 
-function Landing(props) {
-    const { handlePlanetClick, planetHover } = props
+function Home() {
+    let [planetInteraction, setplanetInteraction] = useState({ show: false, info: { name: 'a', text: ['a'] } });
+
+    function handlePlanetClick(planetClicked) {
+        switch (planetClicked) {
+            case 'planet1':
+                setplanetInteraction({ show: true, info: planetsInfo.mercury })
+                break;
+            case 'planet2':
+                setplanetInteraction({ show: true, info: planetsInfo.venus })
+                break;
+            case 'planet3':
+                setplanetInteraction({ show: true, info: planetsInfo.earth })
+                break;
+            case 'planet4':
+                setplanetInteraction({ show: true, info: planetsInfo.mars })
+                break;
+            case 'planet5':
+                setplanetInteraction({ show: true, info: planetsInfo.jupiter })
+                break;
+            case 'planet6':
+                setplanetInteraction({ show: true, info: planetsInfo.saturn })
+                break;
+            case 'planet7':
+                setplanetInteraction({ show: true, info: planetsInfo.uranus })
+                break;
+            case 'planet8':
+                setplanetInteraction({ show: true, info: planetsInfo.neptune })
+                break;
+            default:
+                setplanetInteraction((prevValues) => { return { show: false, info: prevValues.info } })
+                break;
+        }
+    }
+
     useEffect(() => animate(), []);
-
-    const text = [<p key={1}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec non vehicula diam. Vestibulum vitae ultricies orci. Aenean nisi orci, convallis interdum molestie ac, commodo et nisl. Ut vel augue fringilla, auctor felis ut, accumsan ante. Sed lectus est, mollis at sapien in, dictum volutpat diam.</p>,
-    <p key={2}>Mauris lacinia lobortis eros at maximus. In maximus orci eget quam feugiat accumsan. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas ultrices arcu vel felis sodales, quis posuere felis ultrices. Duis lacinia leo id sapien vulputate interdum. Vestibulum venenatis, erat nec imperdiet scelerisque, ligula justo fringilla arcu, a cursus nunc lorem quis mi. Praesent iaculis tellus sem, eu rhoncus magna porta id.</p>,
-    <p key={3}>Praesent a mollis diam, ac consectetur urna. Morbi tempor nisi eget risus cursus vehicula. Donec maximus nunc non lorem finibus aliquam.</p>];
-
 
     return (
         <>
-            <div className='landing'>
+            <div className='home'>
                 <div className='solar-system'>
                     <img className="sun" src={sun} alt="sun" />
                     <svg className="orbits" width="1440" height="600" viewBox="0 0 1440 600" fill="none">
@@ -49,16 +78,18 @@ function Landing(props) {
                     </svg>
 
                     {planetsSvgs.map((svg, index) => {
-                        return (<div key={index} className={`planet planet${index + 1}`} onClick={(e) => handlePlanetClick(e.target.classList[1])}>
-                            <img src={svg.planet ? svg.planet : svg} alt="planet" />
-                            { (index === 5 || index === 6) && <img className={svg.class} src={svg.ring} alt="planet ring" />}
-                        </div>)
+                        return (
+                            <div key={index} className={`planet planet${index + 1}`} onClick={(planetClicked) => handlePlanetClick(planetClicked.target.classList[1])}>
+                                <img src={svg.planet ? svg.planet : svg} alt="planet" />
+                                { (index === 5 || index === 6) && <img className={svg.class} src={svg.ring} alt="planet ring" />}
+                            </div>
+                        )
                     })}
                 </div>
             </div>
-            <Card cardText={text} buttonLink='https://google.com' buttonText='default' handlePlanetClick={() => { handlePlanetClick() }} planetInfo={planetHover} />
+            <Card handlePlanetClick={() => { handlePlanetClick() }} planetInfo={planetInteraction} />
         </>
     );
 }
 
-export default Landing;
+export default Home;
