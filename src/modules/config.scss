@@ -47,7 +47,7 @@ p {
 /* // phones */
 @media screen and (max-width: 576px) {
     html {
-        font-size: 16px;
+        font-size: 14px;
     }
 }
 
@@ -58,19 +58,13 @@ p {
     }
 }
 
-/* // landscape tablets */
-@media screen and (min-width: 769px) and (max-width: 992px) {
+/* // landscape tablets - small desktop */
+@media screen and (min-width: 769px) and (max-width: 1200px) {
     html {
         font-size: 18px;
     }
 }
 
-/* // small desktop */
-@media screen and (min-width: 993px) and (max-width: 1200px) {
-    html {
-        font-size: 18px;
-    }
-}
 
 /* // big desktops */
 @media screen and (min-width: 1201px) {

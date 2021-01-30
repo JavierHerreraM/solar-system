@@ -9,14 +9,12 @@ function Card(props) {
     const { name, text } = planetInfo.info;
 
     return <div className={`${planetInfo.show ? 'show-card ' : ''}card-body`}>
-        <div className='card-title'>
+        <header className='card-title'>
             <h3>{name}</h3>
-            <FontAwesomeIcon icon={faTimes} onClick={handlePlanetClick} />
-        </div>
+            <FontAwesomeIcon icon={faTimes} onClick={handlePlanetClick} className='card-close-icon' />
+        </header>
         <div className='card-text'>{
-            text.map((text, index) => {
-                return <p key={index}>{text}</p>
-            })
+            <p>{text[0]}</p>
         }</div>
         <Button buttonLink={`/planets:${name}`} buttonText='see more' name={name} />
     </div>

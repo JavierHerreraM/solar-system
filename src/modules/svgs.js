@@ -10,7 +10,7 @@ import uranus from '../svg/uranus.svg';
 import uranusRing from '../svg/uranus-ring.svg';
 import neptune from '../svg/neptune.svg';
 
-let svgsImport = {
+const svgsImport = {
     sun,
     mercury,
     venus,

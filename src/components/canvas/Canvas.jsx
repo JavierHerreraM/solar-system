@@ -3,7 +3,7 @@ import './canvas.scss';
 
 function Canvas(props) {
     return (
-        <div className='canvas'>{props.children}</div>
+        <main className='canvas'>{props.children}</main>
     );
 }
 

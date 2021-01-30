@@ -2,7 +2,6 @@
 
 .planets-page {
     min-height: calc(100vh - (40px + 2rem));
-    height: calc(100vh - (40px + 2rem));
     overflow-x: hidden;
 }
 
@@ -10,7 +9,7 @@
     position: relative;
     z-index: 2;
     width: 100%;
-    height: 100%;
+    min-height: 100vh;
     padding: 0 2rem;
     color: $white-color;
 
@@ -32,13 +31,11 @@
     h2 {
         text-transform: capitalize;
     }
-
-    :last-child {
-        margin-right: 0.5rem;
-    }
 }
 
 .planets-menu-icon {
+    margin-right: 0.5rem;
+    font-size: 1.2rem;
     transition: transform 0.3s ease-out;
 }
 
@@ -54,7 +51,7 @@
     list-style: none;
     width: 100%;
     height: 0px;
-    transition: height 0.5s ease-out;
+    transition: height 0.4s ease-out;
     overflow-y: hidden;
 
     a {
@@ -69,18 +66,26 @@
 }
 
 .planets-body {
-    padding-top: calc(2rem + 40px);
+    padding: calc(2rem + 40px) 1rem 0;
+    border-radius: 15px;
+    background-color: rgba(28, 28, 28, 0.15);
 
     p {
         overflow-wrap: break-word;
         margin-bottom: 2rem;
     }
+
+    .planet-characteristics {
+        font-weight: 600;
+        margin-bottom: 1rem;
+    }
 }
+
 
 .planets-img {
     position: absolute;
-    right: 10%;
-    bottom: 10%;
+    right: 15%;
+    bottom: 15%;
     z-index: 1;
     display: flex;
     justify-content: center;
@@ -98,35 +103,45 @@
 
 .mercury {
     .planets-img {
-        height: 10vw;
+        height: 15vw;
     }
 }
 
 .venus {
     .planets-img {
-        height: 15vw;
+        height: 20vw;
     }
 }
 
 .earth {
     .planets-img {
-        height: 15vw;
+        height: 20vw;
     }
 }
 
 .mars {
     .planets-img {
-        height: 10vw;
+        height: 15vw;
     }
 }
 
 .jupiter {
     .planets-img {
-        height: 30vw;
+        height: 35vw;
     }
 }
 
 .saturn {
+    .planets-img {
+        height: 30vw;
+    }
+
+    .planet-ring {
+        width: 48vw;
+    }
+}
+
+.uranus {
     .planets-img {
         height: 25vw;
     }
@@ -136,18 +151,35 @@
     }
 }
 
-.uranus {
+.neptune {
     .planets-img {
-        height: 20vw;
-    }
-
-    .planet-ring {
-        width: 32vw;
+        height: 25vw;
     }
 }
 
-.neptune {
+/* // portrait tablets */
+@media screen and (max-width: 768px) {
+    .planets-page {
+        display: flex;
+        flex-direction: column-reverse;
+    }
+
     .planets-img {
-        height: 20vw;
+        position: static;
+        margin: 1rem 0 3rem;
+    }
+
+    .planets-card {
+        height: auto;
+        padding: 1rem 0;
+        margin-bottom: auto;
+    }
+
+    .open-menu {
+        height: 300px;
+    }
+
+    .planets-menu-icon {
+        font-size: 20px;
     }
 }

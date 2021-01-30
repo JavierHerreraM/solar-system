@@ -1,48 +1,60 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 import planetsInfo from '../../modules/planetsInfo';
 import './planets.scss';
 
 function Planets(props) {
-    const planet = props.match.params.planet.substring(1);
-    const { name, text, svg, ring = undefined, color } = planetsInfo[planet];
-
+    let planet;
     let [menuOpen, setMenuOpen] = useState(false);
+
+    if (props.match.params.planet) {
+        planet = props.match.params.planet.substring(1);
+    } else {
+        planet = 'earth';
+    }
+
+    const { name, text, characteristics, svg, ring = undefined, color } = planetsInfo[planet];
 
     function handleCLick() {
         menuOpen ? setMenuOpen(false) : setMenuOpen(true);
     }
 
-    return <div className={`planets-page ${name}`}>
+    return <section className={`planets-page ${name}`}>
         <div className='planets-card'>
             <nav style={{ backgroundColor: color }}>
-                <div className='planets-header'>
+                <header className='planets-header'>
                     <h2>{name}</h2>
                     <FontAwesomeIcon className={`${menuOpen ? 'rotate-icon ' : ''}planets-menu-icon`} icon={faCaretDown} onClick={handleCLick} />
-                </div>
-                <ul className={`planets-menu ${menuOpen ? 'open-menu' : ''}`}>
-                    <li><a href='/planets:mercury'>Mercury</a></li>
-                    <li><a href='/planets:venus'>venus</a></li>
-                    <li><a href='/planets:earth'>earth</a></li>
-                    <li><a href='/planets:mars'>mars</a></li>
-                    <li><a href='/planets:jupiter'>jupiter</a></li>
-                    <li><a href='/planets:saturn'>saturn</a></li>
-                    <li><a href='/planets:uranus'>uranus</a></li>
-                    <li><a href='/planets:neptune'>neptune</a></li>
+                </header>
+                <ul className={`planets-menu ${menuOpen ? 'open-menu' : ''}`} onClick={handleCLick}>
+                    <li><Link to='/planets:mercury'>mercury</Link></li>
+                    <li><Link to='/planets:venus'>venus</Link></li>
+                    <li><Link to='/planets:earth'>earth</Link></li>
+                    <li><Link to='/planets:mars'>mars</Link></li>
+                    <li><Link to='/planets:jupiter'>jupiter</Link></li>
+                    <li><Link to='/planets:saturn'>saturn</Link></li>
+                    <li><Link to='/planets:uranus'>uranus</Link></li>
+                    <li><Link to='/planets:neptune'>neptune</Link></li>
                 </ul>
             </nav>
             <div className='planets-body'>
                 {text.map((text, index) => {
                     return <p key={index}>{text}</p>
                 })}
+                <p><strong>Circumference: </strong>{characteristics[0]}</p>
+                <p><strong>Mass: </strong>{characteristics[1]}</p>
+                <p><strong>Year: </strong>{characteristics[2]}</p>
+                <p><strong>Day: </strong>{characteristics[3]}</p>
+                <p><strong>Temperature: </strong>{characteristics[4]}</p>
             </div>
         </div>
         <div className={`planets-img`}>
             <img src={svg} alt={name} />
             {ring && <img className='planet-ring' src={ring} alt={`${name}'s ring`} />}
         </div>
-    </div>
+    </section>
 }
 
 export default Planets;
