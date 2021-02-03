@@ -1,13 +1,14 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './button.scss';
 
 function Button(props) {
     let { buttonLink, buttonText = 'default', name } = props;
     return (
         <>
-            <a href={buttonLink} className={`button card-${name}`}>
+            <Link to={buttonLink} className={`button card-${name}`}>
                 {buttonText}
-            </a>
+            </Link>
         </>
     );
 }

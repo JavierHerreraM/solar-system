@@ -27,6 +27,12 @@
     color: $white-color;
     text-decoration: none;
     cursor: pointer;
+    transition: letter-spacing 0.2s ease-out;
+
+    &:hover {
+        // transform: scale(1.1);
+        letter-spacing: 0.15rem;
+    }
 }
 
 .active {

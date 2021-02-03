@@ -8,7 +8,7 @@ function Card(props) {
     const { planetInfo, handlePlanetClick } = props;
     const { name, text } = planetInfo.info;
 
-    return <div className={`${planetInfo.show ? 'show-card ' : ''}card-body`}>
+    return <div className={`${planetInfo.show ? 'show-card ' : undefined} card-body`}>
         <header className='card-title'>
             <h3>{name}</h3>
             <FontAwesomeIcon icon={faTimes} onClick={handlePlanetClick} className='card-close-icon' />

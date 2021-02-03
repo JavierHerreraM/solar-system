@@ -12,7 +12,7 @@ function animate() {
   const path7 = anime.path('.path7');
   const path8 = anime.path('.path8');
   const planets = document.querySelectorAll('.planet');
-    
+
   //* Modifies the index of the planets
   function changeZIndex(time, planetPosition) {
     setTimeout(() => {
@@ -28,11 +28,14 @@ function animate() {
     easing: 'linear',
     duration: 7000,
     loop: true,
+
     //* At the middle of the animation changes the planet z-index
     //TODO: change the time for % of the path completed
-    loopBegin: () => changeZIndex(3500, 0),
-    loopComplete: () => changeZIndex(0, 0),
-    autoplay: false,
+    loopBegin: () => {
+      changeZIndex(1750, 0);
+      changeZIndex(5250, 0);
+    },
+    autoplay: true,
   });
 
   const planet2 = anime({
@@ -42,8 +45,10 @@ function animate() {
     easing: 'linear',
     duration: 14000,
     loop: true,
-    loopBegin: () => changeZIndex(7000, 1),
-    loopComplete: () => changeZIndex(0, 1),
+    loopBegin: () => {
+      changeZIndex(3500, 1);
+      changeZIndex(10500, 1);
+    },
     autoplay: false,
   });
   
@@ -78,8 +83,10 @@ function animate() {
     easing: 'linear',
     duration: 41000,
     loop: true,
-    loopBegin: () => changeZIndex(20500, 4),
-    loopComplete: () => changeZIndex(0, 4),
+    loopBegin: () => {
+      changeZIndex(10250, 4);
+      changeZIndex(30750, 4);
+    },
     autoplay: false,
   });
   
@@ -114,8 +121,10 @@ function animate() {
     easing: 'linear',
     duration: 77000,
     loop: true,
-    loopBegin: () => changeZIndex(38500, 7),
-    loopComplete: () => changeZIndex(0, 7),
+    loopBegin: () => {
+      changeZIndex(19250, 7);
+      changeZIndex(57750, 7);
+    },
     autoplay: false,
   });
 
@@ -131,7 +140,8 @@ function animate() {
     planet8.tick(t);
     customRAF = requestAnimationFrame(loop);
   }
-  requestAnimationFrame(loop);
+    requestAnimationFrame(loop);
+
 }
 
 export default animate;

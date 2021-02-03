@@ -16,8 +16,8 @@
     color: $white-color;
     overflow-x: hidden;
 
-    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     -webkit-clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
+    clip-path: polygon(100% 0, 100% 0, 100% 100%, 100% 100%);
     transition: clip-path 0.4s ease-out;
 }
 
@@ -61,6 +61,6 @@
 }
 
 .show-card {
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
 }

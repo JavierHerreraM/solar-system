@@ -1,0 +1,70 @@
+@import "../../modules/styles";
+
+footer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: 1rem;
+    margin-top: auto;
+    color: $white-color;
+    background-color: #141621;
+
+    &>* {
+        padding: 0 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+}
+
+.footer-title {
+    margin-right: auto;
+    text-align: center;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: auto;
+
+    h4 {
+        margin-bottom: 1rem;
+    }
+
+    ul {
+        list-style: none;
+
+        & li {
+            margin-bottom: 0.5rem;
+        }
+    }
+}
+
+.footer-link {
+    font-size: 1rem;
+    color: $white-color;
+    text-decoration: none;
+}
+
+.footer-copyright {
+    font-size: 0.8rem;
+    font-weight: 300;
+}
+
+@media screen and (max-width: 630px) {
+    .footer-copyright {
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 414px) {
+    footer {
+        justify-content: center;
+    }
+
+    .footer-contact,
+    .footer-title {
+        // margin-bottom: 1.5rem;
+        margin-right: 0;
+    }
+}

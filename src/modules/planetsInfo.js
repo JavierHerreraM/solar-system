@@ -1,7 +1,11 @@
 import svgsImport from './svgs';
+
+// * Imports the svgs
 const { sun, mercury, venus, earth, mars, jupiter, saturn, saturnRing, uranus, uranusRing, neptune } = svgsImport;
+
 const planetsInfo = {
     sun: sun,
+    // * Each planet has a name, text, characteristics(usually 4-5), the svg and a theme color
     mercury: {
         name: 'mercury',
         text: ['Mercury is the closest planet to the sun and the smallest in the solar system. It is only about as wide as the Atlantic ocean and eighteen Mercury would fit inside the Earth. It is named for the ancient roman god of trade and profit.', "It's thin atmosphere means meteors don't burn up, so Mercury is covered in craters just like our Moon.", "Standing on Mercury's surface at its closest point to the Sun, it would appear more than three times larger than it does on Earth. Sunlight in mercury can be as much as 11 times brighter than it is on Earth.", "The discoverer of Mercury is unknown, the earliest know recorded observations of Mercury come from the 14th century BC."],
