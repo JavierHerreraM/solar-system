@@ -13,8 +13,8 @@ function Footer() {
                     <h4>Contact:</h4>
                     <ul>
                         <li><p><FontAwesomeIcon icon={faEnvelope} />Javiherreramad@gmail.com</p></li>
-                        <li><a className='footer-link' href="https://github.com/JavierHerreraM" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} />Github</a></li>
-                        <li><a className='footer-link' href="https://www.linkedin.com/in/javier-herrera-madrigal" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithubSquare} />Linkedin</a></li>
+                        <li><a className='footer-link' href="https://github.com/JavierHerreraM" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faGithubSquare} />Github</a></li>
+                        <li><a className='footer-link' href="https://www.linkedin.com/in/javier-herrera-madrigal" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={faLinkedin} />Linkedin</a></li>
                     </ul>
                 </div>
             </div>
