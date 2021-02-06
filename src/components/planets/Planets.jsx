@@ -30,7 +30,7 @@ function Planets(props) {
                 <nav style={{ backgroundColor: color }}>
                     <header className='planets-header'>
                         <h2>{name}</h2>
-                        <FontAwesomeIcon className={`${menuOpen ? 'rotate-icon ' : undefined}planets-menu-icon`} icon={faCaretDown} onClick={handleCLick} />
+                        <FontAwesomeIcon className={`planets-menu-icon ${menuOpen ? 'rotate-icon ' : undefined}`} icon={faCaretDown} onClick={handleCLick} />
                     </header>
                     <ul className={`planets-menu ${menuOpen ? 'open-menu' : undefined}`} onClick={handleCLick}>
                         <li><Link to='/planets:mercury'>mercury</Link></li>
