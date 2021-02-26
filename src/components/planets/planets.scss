@@ -3,7 +3,6 @@
 .planets-page {
     position: relative;
     min-height: calc(100vh - (40px + 2rem));
-    overflow-x: hidden;
 }
 
 .planets-card {
@@ -28,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 
     h2 {
         text-transform: capitalize;
@@ -36,7 +36,6 @@
 
 .planets-menu-icon {
     margin-right: 0.5rem;
-    cursor: pointer;
     font-size: 1.2rem;
     transition: transform 0.3s ease-out;
 }

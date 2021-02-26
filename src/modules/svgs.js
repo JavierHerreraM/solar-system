@@ -22,6 +22,6 @@ const svgsImport = {
     uranus,
     uranusRing,
     neptune
-}
+};
 
 export default svgsImport;

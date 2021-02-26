@@ -6,30 +6,26 @@ import Nav from './components/nav/Nav'
 import Home from './components/home/Home'
 import Planets from './components/planets/Planets';
 import Footer from './components/footer/Footer';
+import Page404 from './components/page-404/Page404';
 import './modules/config.scss'
 
 function App() {
-    const isSmallScreen = useMediaQuery({ query: '(max-device-width: 768px)' });
     const isBigScreen = useMediaQuery({ query: '(min-device-width: 769px)' });
 
     return <>
         <Canvas>
             <Nav />
-            {isBigScreen &&
-                <Switch>
-                    <Route path="/planets:planet" component={Planets} />
-                    <Route path="/" component={Home} />
-                </Switch>}
-
             {/* On tablet portrait and below renders the planets comp for both paths */}
-            {isSmallScreen &&
+            {
                 <Switch>
                     <Route path="/planets:planet" component={Planets} />
-                    <Route path="/" component={Planets} />
-                </Switch>}
+                    <Route exact path="/" component={isBigScreen ? Home : Planets} />
+                    <Route path="*" component={Page404} />
+                </Switch>
+            }
         </Canvas>
         <Footer />
     </>;
-}
+};
 
 export default App;

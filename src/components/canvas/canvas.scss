@@ -8,5 +8,45 @@
     background-image: url('./space.png');
 
     display: flex;
+    justify-content: center;
+}
+
+.container {
+    display: flex;
     flex-direction: column;
+}
+
+/* // phones */
+@media screen and (max-width: 576px) {
+    .container {
+        width: 100%;
+    }
+}
+
+/* // portrait tablets */
+@media screen and (min-width: 577px) and (max-width: 768px) {
+    .container {
+        max-width: 540px;
+    }
+}
+
+/* // landscape tablets */
+@media screen and (min-width: 769px) and (max-width: 992px) {
+    .container {
+        max-width: 720px;
+    }
+}
+
+/* // small desktop */
+@media screen and (min-width: 993px) and (max-width: 1200px) {
+    .container {
+        max-width: 960px;
+    }
+}
+
+/* // big desktops */
+@media screen and (min-width: 1201px) {
+    .container {
+        max-width: 1140px;
+    }
 }

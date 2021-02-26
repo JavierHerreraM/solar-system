@@ -65,6 +65,6 @@ const planetsInfo = {
         svg: neptune,
         color:'#6073C6'
     }, 
-}
+};
 
 export default planetsInfo;

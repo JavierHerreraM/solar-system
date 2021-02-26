@@ -14,11 +14,11 @@ function animate() {
   const planets = document.querySelectorAll('.planet');
 
   //* Modifies the index of the planets
-  function changeZIndex(time, planetPosition) {
+  let changeZIndex = (time, planetPosition) => {
     setTimeout(() => {
       planets[planetPosition].classList.toggle(`layer${planetPosition + 1}`);
     }, time);
-  }
+  };
 
   //* Animates the targeted planet, its the same for the 8 planets
   const planet1 = anime({
@@ -128,6 +128,9 @@ function animate() {
     autoplay: false,
   });
 
+
+  // * Creates a custom RAF, this way i restart the animation every time the component is mounted
+  // * avoiding the page to lag 
   cancelAnimationFrame(customRAF);
   function loop(t) {
     planet1.tick(t);
@@ -142,6 +145,6 @@ function animate() {
   }
     requestAnimationFrame(loop);
 
-}
+};
 
 export default animate;

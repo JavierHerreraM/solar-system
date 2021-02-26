@@ -6,7 +6,7 @@ import svgsImport from '../../modules/svgs';
 import planetsInfo from '../../modules/planetsInfo';
 import './home.scss';
 
-// * Imports the svgs separately because its easy the get the planets and its respective rings this way
+// * Imports the svgs separately because its easier to get the planets and its respective rings this way
 const { sun, mercury, venus, earth, mars, jupiter, saturn, saturnRing, uranus, uranusRing, neptune } = svgsImport;
 const planetsSvgs = [mercury, venus, earth, mars, jupiter, { planet: saturn, class: 'saturn-ring', ring: saturnRing }, { planet: uranus, class: 'uranus-ring', ring: uranusRing }, neptune];
 
@@ -17,7 +17,7 @@ function Home() {
     useEffect(() => animate(), []);
 
     // * Sets which planet info it should display depending on which planet the user select, if no planet its selected set to not show the card
-    function handlePlanetClick(planetClicked) {
+    let handlePlanetClick = (planetClicked) => {
         switch (planetClicked) {
             case 'planet1': setplanetInteraction({ show: true, info: planetsInfo.mercury }); break;
             case 'planet2': setplanetInteraction({ show: true, info: planetsInfo.venus }); break;
@@ -27,18 +27,18 @@ function Home() {
             case 'planet6': setplanetInteraction({ show: true, info: planetsInfo.saturn }); break;
             case 'planet7': setplanetInteraction({ show: true, info: planetsInfo.uranus }); break;
             case 'planet8': setplanetInteraction({ show: true, info: planetsInfo.neptune }); break;
+            // * this is calls when the card is closed
             default: setplanetInteraction((prevValues) => { return { show: false, info: prevValues.info } }); break;
         }
-    }
+    };
 
+    // TODO: Refactor the orbits into its own component
     return <>
         <Helmet><title>Solar System</title></Helmet>
         <section className='home'>
             <div className='solar-system'>
                 <img className="sun" src={sun} alt="sun" />
-
-                {/* The class for the paths is for the animation */}
-                {/* Change this for a ref, and pass that ref when the animation is called */}
+                {/* The classes of the paths are for the animation */}
                 <svg className='orbits' width="1440" height="600" viewBox="0 0 1440 600" fill="none">
                     <path className='path1' d="M720 359.5C758.609 359.5 793.54 352.848 818.799 342.113C831.43 336.745 841.619 330.365 848.644 323.307C855.666 316.251 859.5 308.545 859.5 300.5C859.5 292.455 855.666 284.749 848.644 277.693C841.619 270.635 831.43 264.255 818.799 258.887C793.54 248.152 758.609 241.5 720 241.5C681.391 241.5 646.46 248.152 621.201 258.887C608.57 264.255 598.381 270.635 591.356 277.693C584.334 284.749 580.5 292.455 580.5 300.5C580.5 308.545 584.334 316.251 591.356 323.307C598.381 330.365 608.57 336.745 621.201 342.113C646.46 352.848 681.391 359.5 720 359.5Z" stroke="#fcfefe" strokeOpacity="0.1" />
                     <path className='path2' d="M720 213.5C662.06 213.5 609.628 223.286 571.7 239.09C552.735 246.992 537.42 256.389 526.854 266.797C516.289 277.204 510.5 288.593 510.5 300.5C510.5 312.407 516.289 323.796 526.854 334.203C537.42 344.612 552.735 354.008 571.7 361.91C609.628 377.714 662.06 387.5 720 387.5C777.94 387.5 830.372 377.714 868.3 361.91C887.265 354.008 902.58 344.612 913.146 334.203C923.711 323.796 929.5 312.407 929.5 300.5C929.5 288.593 923.711 277.204 913.146 266.797C902.58 256.389 887.265 246.992 868.3 239.09C830.372 223.286 777.94 213.5 720 213.5Z" stroke="#fcfefe" strokeOpacity="0.1" />
@@ -53,7 +53,7 @@ function Home() {
                 {/* It maps through the svg array and displays the planets */}
                 {planetsSvgs.map((svg, index) => {
                     return (
-                        // planetClicked.target.classList[1] = the identifier of which planet is clicked
+                        // * planetClicked.target.classList[1] = the identifier of which planet is clicked
                         <div key={index} className={`planet planet${index + 1}`} onClick={(planetClicked) => handlePlanetClick(planetClicked.target.classList[1])}>
                             {/* svg.planet is the image of the planet, if there is no img it means is a planet with a ring, in that case svg planet is an object
                             that contains the svg of the planet and the one of the ring */}
@@ -65,8 +65,8 @@ function Home() {
                 })}
             </div>
         </section>
-        <Card handlePlanetClick={() => { handlePlanetClick() }} planetInfo={planetInteraction} />
+        <Card handlePlanetClick={handlePlanetClick} planetInfo={planetInteraction} />
     </>
-}
+};
 
 export default Home;
